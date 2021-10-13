@@ -1,1 +1,1 @@
-export const toMarkdownCode = (str: string, type = '') => ('```' + type + '\n') + str + '```'
+export const toMarkdownCode = (str: string, type = '') => ('```' + type + '\n') + str + '\n```'
