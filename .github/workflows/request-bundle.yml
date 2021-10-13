@@ -8,7 +8,7 @@ on:
 
 jobs:
   request-bundle:
-    runs-on: macos-11
+    runs-on: windows-2019
     steps:
       - uses: actions/checkout@v2
       - name: Autobundle Bot
