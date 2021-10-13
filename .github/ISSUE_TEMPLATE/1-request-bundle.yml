@@ -27,8 +27,8 @@ body:
       label: Bundler
       description: What the bundler you want to bunlding?
       options:
-        - Esbuild (Default)
-        - Ncc
+        - esbuild
+        - ncc
     validations:
       required: true
 
@@ -37,5 +37,6 @@ body:
     attributes:
       label: Bundle options
       description: Bundle options
+      # Unfortunately, GitHub currently not support value field, so we'll keep the label as the value
       options:
-        - label: Minify code
+        - label: minify

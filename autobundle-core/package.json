@@ -2,5 +2,16 @@
   "name": "autobundle-core",
   "version": "1.0.0",
   "main": "src/index.ts",
-  "license": "MIT"
+  "license": "MIT",
+  "scripts": {
+    "test": "node -r @swc-node/register"
+  },
+  "dependencies": {
+    "js-yaml": "^4.1.0",
+    "marked": "^3.0.7"
+  },
+  "devDependencies": {
+    "@types/js-yaml": "^4.0.3",
+    "@types/marked": "^3.0.1"
+  }
 }
