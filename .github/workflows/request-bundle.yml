@@ -13,3 +13,5 @@ jobs:
       - uses: actions/checkout@v2
       - name: Autobundle Bot
         uses: ./autobundle-bot
+        with:
+          token: ${{secrets.GH_TOKEN}}
