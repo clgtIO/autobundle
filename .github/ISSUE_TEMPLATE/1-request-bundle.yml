@@ -27,7 +27,7 @@ body:
       label: Bundler
       description: What the bundler you want to bunlding?
       options:
-        - Esbuild
+        - Esbuild (Default)
         - Ncc
     validations:
       required: true
