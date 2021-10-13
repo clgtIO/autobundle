@@ -8,10 +8,10 @@
     "autobundle-core"
   ],
   "scripts": {
-    "verify-commit": "node ./scripts/commit-verify.js"
+    "commit-verify": "node ./scripts/commit-verify.js"
   },
   "git": {
-    "commit-msg": "verify-commit"
+    "commit-msg": "commit-verify"
   },
   "devDependencies": {
     "@swc-node/register": "^1.3.5",
