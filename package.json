@@ -5,7 +5,8 @@
   "private": true,
   "workspaces": [
     "autobundle-bot",
-    "autobundle-core"
+    "autobundle-core",
+    "autobundle-common"
   ],
   "scripts": {
     "commit-verify": "node ./scripts/commit-verify.js"
