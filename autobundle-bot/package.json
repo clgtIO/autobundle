@@ -1,0 +1,10 @@
+{
+  "name": "autobundle-bot",
+  "version": "1.0.0",
+  "main": "src/main.ts",
+  "license": "MIT",
+  "dependencies": {
+    "@actions/core": "^1.6.0",
+    "@actions/github": "^5.0.0"
+  }
+}

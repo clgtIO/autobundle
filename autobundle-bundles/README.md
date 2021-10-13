@@ -1,0 +1,1 @@
+- bundles.json: save the packages info

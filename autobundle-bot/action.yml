@@ -1,0 +1,7 @@
+name: 'Autobundle Bot'
+description: 'Autobundle Bot'
+author: 'Duc An'
+
+runs:
+  using: 'node12'
+  main: 'dist/index.js'

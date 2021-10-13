@@ -1,0 +1,36 @@
+name: 'Request package bundle'
+description: Request npm package bundled, with minified, .d.ts file.
+
+body:
+  - type: input
+    id: packageName
+    attributes:
+      label: NPM package name
+    validations:
+      required: true
+
+  - type: input
+    id: packageName
+    attributes:
+      label: NPM package name
+    validations:
+      required: true
+
+  - type: dropdown
+    id: engine
+    attributes:
+      label: Bundler
+      description: What the bundler you want to bunlding?
+      options:
+        - Esbuild
+        - Ncc
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: options
+    attributes:
+      label: Bundle options
+      description: Bundle options
+      options:
+        - label: Minify code

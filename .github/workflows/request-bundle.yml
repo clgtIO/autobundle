@@ -1,0 +1,13 @@
+name: Request bundle
+
+on:
+  issues:
+    types:
+      - opened
+
+jobs:
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ../autobundle-bot
