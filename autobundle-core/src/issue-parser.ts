@@ -1,14 +1,16 @@
 import * as fs from 'fs'
+import * as Yaml from 'js-yaml'
+import * as marked from 'marked'
 import * as path from 'path'
 import { AutobundleRequest, IssueFormTemplate } from './types'
-import * as marked from 'marked'
-import * as Yaml from 'js-yaml'
 
 // TODO: make this function as separate package (for example: parse-issue-form-template)
 //      and because we can move it to another package, let write it more generally
 
 const bundleRequestTemplate = Yaml.load(fs.readFileSync(path.resolve(__dirname, '..', '..', '.github/ISSUE_TEMPLATE/1-request-bundle.yml')).toString()) as IssueFormTemplate
 
+// parseRequestBundleContent is parser for request bundle issue
+// it parse markdown and map the content to issue form schema
 export function parseRequestBundleContent (content: string): AutobundleRequest | false {
 
   const form: Record<string, string | { [key: string]: string | boolean }> = {}
