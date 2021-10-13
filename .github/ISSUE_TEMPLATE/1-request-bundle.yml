@@ -1,5 +1,9 @@
 name: 'Request package bundle'
 description: Request npm package bundled, with minified, .d.ts file.
+title: "Request bundle: "
+labels: ["request-bundle"]
+assignees:
+  - ducan-ne
 
 body:
   - type: input
