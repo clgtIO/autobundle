@@ -19,23 +19,23 @@ async function run (): Promise<void> {
 
     if (!request) {
       const comment = `
-        Hi
-        Your request is invalid, could you check it again?
-        
-        ## Request detail:
-        ${toMarkdownCode(JSON.stringify(request))}
+Hi
+Your request is invalid, could you check it again?
+
+## Request detail:
+${toMarkdownCode(JSON.stringify(request, null, 4))}
       `
       await addComment(issue.number, comment)
       throw new Error('Unable to parse issue content')
     }
 
     const comment = `
-        Hi
-        Thanks for create issue for Autobundle
-        Your request is processing, please rechecking this issue after 30 seconds.
-        
-        ## Request detail:
-        ${toMarkdownCode(JSON.stringify(request))}
+Hi
+Thanks for create issue for Autobundle
+Your request is processing, please rechecking this issue after 30 seconds.
+
+## Request detail:
+${toMarkdownCode(JSON.stringify(request, null, 4))}
       `
     await addComment(issue.number, comment)
 
