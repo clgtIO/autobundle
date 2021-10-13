@@ -4,4 +4,4 @@ author: 'Duc An'
 
 runs:
   using: 'node12'
-  main: 'src/main.ts'
+  main: 'dist/index.js'
