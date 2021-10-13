@@ -6,8 +6,9 @@ on:
       - opened
 
 jobs:
-  docker:
+  request-bundle:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: ../autobundle-bot
+      - name: Autobundle Bot
+        uses: ../../autobundle-bot
