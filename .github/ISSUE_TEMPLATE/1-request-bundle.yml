@@ -10,9 +10,10 @@ body:
       required: true
 
   - type: input
-    id: packageName
+    id: version
     attributes:
-      label: NPM package name
+      label: Version
+      value: latest
     validations:
       required: true
 
