@@ -11,4 +11,4 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Autobundle Bot
-        uses: ../../autobundle-bot
+        uses: ./autobundle-bot
