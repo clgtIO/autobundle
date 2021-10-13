@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "main": "src/main.ts",
   "license": "MIT",
+  "scripts": {
+    "build": "esbuild src/main.ts --bundle --outfile=dist/index.js --minify --platform=node --external:@actions/core --external:@actions/github"
+  },
   "dependencies": {
     "@actions/core": "^1.6.0",
     "@actions/github": "^5.0.0"
