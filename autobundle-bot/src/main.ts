@@ -81,6 +81,9 @@ ${toMarkdownCode(JSON.stringify(request, null, 4))}
       }, 5e3)
     } catch (e) {
       // skip if nothing changed
+
+      // debug purpose
+      console.log('git failed', e)
     }
 
     const outfileStat = await fs.promises.stat(outfile)

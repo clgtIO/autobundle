@@ -1,9 +1,11 @@
 name: 'Autobundle Bot'
 description: 'Autobundle Bot'
 author: 'Duc An'
+inputs:
+  token:
+    description: token
+    required: true
 
 runs:
   using: 'docker'
-  args:
-    - 'token'
   image: ./Dockerfile
