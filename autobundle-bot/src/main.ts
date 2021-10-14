@@ -61,7 +61,7 @@ ${toMarkdownCode(JSON.stringify(request, null, 4))}
     }, 2e3)
     await exec(`git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"`, { cwd: process.cwd(), }, 1e3)
     await exec(`git config --global user.name "github-actions[bot]"`, { cwd: process.cwd(), }, 1e3)
-    await exec(`git commit -m "feat(${request.packageName}): add version ${request.version}" -a -n`, {
+    await exec(`git commit  -a -n -m "feat(${request.packageName}): add version ${request.version}"`, {
       cwd: process.cwd(),
     }, 5e3)
     await exec(`git push`, {
