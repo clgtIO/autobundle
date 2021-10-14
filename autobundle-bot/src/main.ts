@@ -103,7 +103,7 @@ Package ${request.package} has been released
     try {
       const notifyCmt = `
 The execution failed, please check the log for more details
-https://github.com/clgtIO/autobundle/runs/${github.context.runId}
+https://github.com/clgtIO/autobundle/actions/runs/${github.context.runId}
 
 cc @ducan-ne
       `
