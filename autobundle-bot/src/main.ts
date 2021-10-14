@@ -1,7 +1,8 @@
 import * as core from '@actions/core'
 import * as github from '@actions/github'
 import { esbuild, generatePackage, parseRequestBundleContent } from 'autobundle-core'
-import { addComment, exec, toMarkdownCode } from 'autobundle-common'
+import { addComment, exec, prettyBytes, toMarkdownCode } from 'autobundle-common'
+import * as fs from 'fs'
 import * as path from 'path'
 
 async function run (): Promise<void> {
@@ -63,10 +64,14 @@ ${toMarkdownCode(JSON.stringify(request, null, 4))}
       cwd: process.cwd(),
     }, 5e3)
 
+    const outfileStat = await fs.promises.stat(outfile)
+
     const completedComment = `
 Package ${request.package} has been released
+
+### Bundle size: ${prettyBytes(outfileStat.size)}
       `
-    await addComment(issue.number, comment)
+    await addComment(issue.number, completedComment)
 
   } catch (error: any) {
     core.error(error)
