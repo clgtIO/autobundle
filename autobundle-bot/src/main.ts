@@ -102,7 +102,7 @@ Package ${request.package} has been released
   } catch (error: any) {
     try {
       const notifyCmt = `
-The execution failed, please check the log for more details
+The execution failed, please check logs for more details
 https://github.com/clgtIO/autobundle/actions/runs/${github.context.runId}
 
 cc @ducan-ne
