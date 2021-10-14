@@ -3,6 +3,7 @@ export interface AutobundleRequest {
   version: string
   // package with version
   package: string
+  external: string
   minify: boolean
   engine: 'esbuild' | 'ncc'
 }

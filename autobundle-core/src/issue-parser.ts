@@ -87,6 +87,7 @@ export function parseRequestBundleContent (content: string): AutobundleRequest |
   return {
     packageName: form.packageName as string,
     version: form.version as string,
+    external: form.external as string,
     package: `${form.packageName}@${form.version}`,
     engine: form.engine as AutobundleRequest['engine'],
     minify: minify,

@@ -62,12 +62,17 @@ ${toMarkdownCode(JSON.stringify(request, null, 4))}
     await exec(`git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"`, { cwd: process.cwd(), }, 1e3)
     await exec(`git config --global user.name "github-actions[bot]"`, { cwd: process.cwd(), }, 1e3)
     await exec('rm -rf .git/hooks/*', { cwd: process.cwd() }, 2e3)
-    await exec(`git commit -m "feat(${request.packageName}): add version ${request.version}" -a -n`, {
-      cwd: process.cwd(),
-    }, 5e3)
-    await exec(`git push`, {
-      cwd: process.cwd(),
-    }, 5e3)
+
+    try {
+      await exec(`git commit -m "feat(${request.packageName}): add version ${request.version}" -a -n`, {
+        cwd: process.cwd(),
+      }, 5e3)
+      await exec(`git push`, {
+        cwd: process.cwd(),
+      }, 5e3)
+    } catch (e) {
+      // skip if nothing changed
+    }
 
     const outfileStat = await fs.promises.stat(outfile)
 

@@ -21,6 +21,13 @@ body:
     validations:
       required: true
 
+  - type: input
+    id: external
+    attributes:
+      label: External that exclude from bundle, separated by comma
+    validations:
+      required: true
+
   - type: dropdown
     id: engine
     attributes:

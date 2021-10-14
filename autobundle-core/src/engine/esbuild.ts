@@ -13,6 +13,7 @@ export const esbuild: Engine = async (entry, outfile, req) => {
       platform: 'node',
       minify: req.minify,
       logLevel: 'error',
+      external: req.external.split(',').map(pkg => pkg.trim()),
       outfile,
     })
   } catch (error) {
