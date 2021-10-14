@@ -4,7 +4,7 @@
   "main": "src/main.ts",
   "license": "MIT",
   "scripts": {
-    "build": "esbuild src/main.ts --bundle --outfile=dist/index.js --minify --platform=node",
+    "build": "esbuild src/main.ts --bundle --outfile=dist/index.js --minify --platform=node --external:esbuild",
     "play": "node -r @swc-node/register src/playground.ts"
   },
   "dependencies": {
