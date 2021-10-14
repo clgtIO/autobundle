@@ -2,9 +2,7 @@
 import * as github from '@actions/github'
 
 async function test () {
-  const octo = await github.getOctokit(process.env.TOKEN, {
-    baseUrl: 'https://api.github.com'
-  })
+  const octo = await github.getOctokit(process.env.TOKEN!)
   console.log(await octo.rest.issues.get({
     owner: 'clgtIO',
     repo: 'autobundle',

@@ -1,21 +1,29 @@
 import * as core from '@actions/core'
 import * as github from '@actions/github'
 import { esbuild, generatePackage, parseRequestBundleContent } from 'autobundle-core'
-import { addComment, exec, prettyBytes, toMarkdownCode } from 'autobundle-common'
+import {
+  addComment, BUNDLE_RELEASED_LABEL, exec, FAILED_TO_RELEASE_LABEL, ORG_NAME, prettyBytes, REPO_NAME, toMarkdownCode,
+} from 'autobundle-common'
 import * as fs from 'fs'
 import * as path from 'path'
 
 async function run (): Promise<void> {
   const issue = github.context.payload.issue
 
-  try {
-    const inputs = {
-      token: core.getInput('token', { required: true }),
-    }
+  const inputs = {
+    token: core.getInput('token', { required: true }),
+  }
 
-    if (!issue) {
-      throw new Error('invalid input')
-    }
+  if (!issue || !inputs.token) {
+    const msg = 'Input is invalid'
+    core.error(msg)
+    core.setFailed(msg)
+    return
+  }
+
+  const octokit = github.getOctokit(inputs.token)
+
+  try {
 
     const issueContent = issue.body || ''
     const request = parseRequestBundleContent(issueContent)
@@ -84,6 +92,13 @@ Package ${request.package} has been released
       `
     await addComment(issue.number, completedComment)
 
+    await octokit.rest.issues.addLabels({
+      owner: ORG_NAME,
+      repo: REPO_NAME,
+      issue_number: issue.number,
+      labels: [BUNDLE_RELEASED_LABEL],
+    })
+
   } catch (error: any) {
     try {
       const notifyCmt = `
@@ -96,6 +111,13 @@ cc @ducan-ne
     } catch (err) {
       console.error('add comment failed', err)
     }
+
+    await octokit.rest.issues.addLabels({
+      owner: ORG_NAME,
+      repo: REPO_NAME,
+      issue_number: issue.number,
+      labels: [FAILED_TO_RELEASE_LABEL],
+    })
 
     core.error(error)
     core.setFailed(error.message)
