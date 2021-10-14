@@ -1,0 +1,12 @@
+{
+  "name": "@autobundle/ms",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "files": [
+    "dist/index.js"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "ms": "1.0.0"
+  }
+}

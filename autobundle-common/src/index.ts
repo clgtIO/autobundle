@@ -3,3 +3,4 @@
 export * from './github'
 export * from './properties'
 export * from './util'
+export * from './exec'

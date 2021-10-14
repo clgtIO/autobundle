@@ -1,7 +1,8 @@
 import * as core from '@actions/core'
 import * as github from '@actions/github'
-import { parseRequestBundleContent } from 'autobundle-core'
-import { addComment, toMarkdownCode } from 'autobundle-common'
+import { esbuild, generatePackage, parseRequestBundleContent } from 'autobundle-core'
+import { addComment, exec, toMarkdownCode } from 'autobundle-common'
+import * as path from 'path'
 
 async function run (): Promise<void> {
   try {
@@ -36,6 +37,34 @@ Your request is processing, please rechecking this issue after 30 seconds.
 
 ## Request detail:
 ${toMarkdownCode(JSON.stringify(request, null, 4))}
+      `
+    await addComment(issue.number, comment)
+
+    const pkgDir = await generatePackage(request)
+    const indexFile = path.resolve(pkgDir, 'index.ts')
+    const outfile = path.resolve(pkgDir, 'dist/index.js')
+
+    switch (request.engine) {
+      case 'esbuild': {
+        await esbuild(indexFile, outfile, request)
+        break
+      }
+      default: {
+        console.log('not supported yet')
+        break
+      }
+    }
+
+    await exec(`git commit -m "feat(${request.packageName}): add version ${request.version}" -a --author="github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>"`, {
+      cwd: process.cwd(),
+    }, 5e3)
+
+    await exec(`git push`, {
+      cwd: process.cwd(),
+    }, 5e3)
+
+    const completedComment = `
+Package ${request.package} has been released
       `
     await addComment(issue.number, comment)
 

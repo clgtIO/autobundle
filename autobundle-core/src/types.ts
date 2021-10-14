@@ -1,6 +1,8 @@
 export interface AutobundleRequest {
   packageName: string
   version: string
+  // package with version
+  package: string
   minify: boolean
   engine: 'esbuild' | 'ncc'
 }

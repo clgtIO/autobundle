@@ -4,6 +4,8 @@ import * as marked from 'marked'
 import * as path from 'path'
 import { AutobundleRequest, IssueFormTemplate } from './types'
 
+const NPM_PACKAGE_NAME_RE = /^(?:@[a-z0-9-*~][a-z0-9-*._~]*\/)?[a-z0-9-~][a-z0-9-._~]*$/
+
 // TODO: make this function as separate package (for example: parse-issue-form-template)
 //      and because we can move it to another package, let write it more generally
 
@@ -43,13 +45,13 @@ export function parseRequestBundleContent (content: string): AutobundleRequest |
           case 'checkboxes': {
             marked.walkTokens(children, child => {
               if (child.type === 'list') {
-                form[item.id] = {}
+                const options = form[item.id] = {} as Record<string, boolean>
 
                 // loop and set listItem to above object
                 child.items.forEach(listItem => {
                   const option = item.attributes.options.find(opt => opt.label === listItem.text)
                   if (option) {
-                    form[item.id][option.label] = listItem.checked
+                    options[option.label] = listItem.checked || false
                   }
                 })
               }
@@ -75,11 +77,17 @@ export function parseRequestBundleContent (content: string): AutobundleRequest |
     return false
   }
 
+  // we don't want user put the invalid packageName to code, which can break the next flow
+  if (!NPM_PACKAGE_NAME_RE.test(form.packageName as string)) {
+    return false
+  }
+
   const { minify } = form.options as Record<string, boolean>
 
   return {
     packageName: form.packageName as string,
     version: form.version as string,
+    package: `${form.packageName}@${form.version}`,
     engine: form.engine as AutobundleRequest['engine'],
     minify: minify,
   }
