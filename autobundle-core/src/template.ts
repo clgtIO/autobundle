@@ -1,3 +1,4 @@
+import * as process from 'process'
 import { AutobundleRequest } from './types'
 import * as fs from 'fs'
 import * as path from 'path'
@@ -6,7 +7,6 @@ import { exec, refinePackageName, toOrgPackageName } from 'autobundle-common'
 const INSTALl_TIMEOUT = 60e3 // 1min
 
 export async function generatePackage (request: AutobundleRequest): Promise<string> {
-  // TODO: implement me
   const packageName = refinePackageName(request.packageName)
   const templateDir = path.resolve(__dirname, '..', 'new-package-template')
   const targetDir = path.resolve(__dirname, '..', '..', 'autobundle-bundles', packageName)

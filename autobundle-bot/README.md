@@ -1,0 +1,1 @@
+- Note that new-package-template here is for build version
