@@ -73,7 +73,7 @@ ${toMarkdownCode(JSON.stringify(request, null, 4))}
     await exec('rm -rf .git/hooks/*', { cwd: process.cwd() }, 2e3)
 
     try {
-      await exec(`git commit -m "feat(${request.packageName}): add version ${request.version}" -a -n`, {
+      await exec(`git commit -a -m "feat(${request.packageName}): add version ${request.version}"`, {
         cwd: process.cwd(),
       }, 5e3)
       await exec(`git push -u origin main`, {
@@ -83,7 +83,7 @@ ${toMarkdownCode(JSON.stringify(request, null, 4))}
       // skip if nothing changed
 
       // debug purpose
-      console.log('git failed', e.message)
+      console.log('git failed', e)
     }
 
     const outfileStat = await fs.promises.stat(outfile)
