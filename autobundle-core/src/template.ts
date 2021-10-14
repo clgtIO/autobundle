@@ -1,4 +1,3 @@
-import * as process from 'process'
 import { AutobundleRequest } from './types'
 import * as fs from 'fs'
 import * as path from 'path'

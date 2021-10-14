@@ -1,4 +1,5 @@
 .idea
 ./dist
+./autobundle-bot/dist
 .DS_Store
 node_modules
