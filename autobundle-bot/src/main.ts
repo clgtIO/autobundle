@@ -6,12 +6,13 @@ import * as fs from 'fs'
 import * as path from 'path'
 
 async function run (): Promise<void> {
+  const issue = github.context.payload.issue
+
   try {
     const inputs = {
       token: core.getInput('token', { required: true }),
     }
 
-    const issue = github.context.payload.issue
     if (!issue) {
       throw new Error('invalid input')
     }
@@ -59,8 +60,8 @@ ${toMarkdownCode(JSON.stringify(request, null, 4))}
     await exec(`git remote set-url origin https://ducan-ne:${inputs.token}@github.com/clgtIO/autobundle.git`, {
       cwd: process.cwd(),
     }, 2e3)
-    await exec(`git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"`, { cwd: process.cwd(), }, 1e3)
-    await exec(`git config --global user.name "github-actions[bot]"`, { cwd: process.cwd(), }, 1e3)
+    await exec(`git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"`, { cwd: process.cwd() }, 1e3)
+    await exec(`git config --global user.name "github-actions[bot]"`, { cwd: process.cwd() }, 1e3)
     await exec('rm -rf .git/hooks/*', { cwd: process.cwd() }, 2e3)
 
     try {
@@ -84,6 +85,18 @@ Package ${request.package} has been released
     await addComment(issue.number, completedComment)
 
   } catch (error: any) {
+    try {
+      const notifyCmt = `
+The execution failed, please check the log for more details
+https://github.com/clgtIO/autobundle/runs/${github.context.runId}
+
+cc @ducan-ne
+      `
+      await addComment(issue!.number, notifyCmt)
+    } catch (err) {
+      console.error('add comment failed', err)
+    }
+
     core.error(error)
     core.setFailed(error.message)
   }
