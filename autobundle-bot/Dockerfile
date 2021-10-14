@@ -1,6 +1,6 @@
 FROM node:16-alpine
 
-RUN apk add git --no-cache
+RUN apk add git bash --no-cache
 
 COPY . .
 
