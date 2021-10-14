@@ -6,4 +6,4 @@ runs:
   using: 'docker'
   args:
     - 'token'
-  image: ../bot.Dockerfile
+  image: ./Dockerfile
