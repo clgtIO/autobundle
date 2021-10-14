@@ -76,14 +76,14 @@ ${toMarkdownCode(JSON.stringify(request, null, 4))}
       await exec(`git commit -m "feat(${request.packageName}): add version ${request.version}" -a -n`, {
         cwd: process.cwd(),
       }, 5e3)
-      await exec(`git push`, {
+      await exec(`git push -u origin main`, {
         cwd: process.cwd(),
       }, 5e3)
-    } catch (e) {
+    } catch (e: any) {
       // skip if nothing changed
 
       // debug purpose
-      console.log('git failed', e)
+      console.log('git failed', e.message)
     }
 
     const outfileStat = await fs.promises.stat(outfile)
