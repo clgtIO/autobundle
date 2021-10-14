@@ -4,4 +4,6 @@ author: 'Duc An'
 
 runs:
   using: 'docker'
-  image: ./Dockerfile
+  args:
+    - 'token'
+  image: ../bot.Dockerfile
