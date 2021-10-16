@@ -22,8 +22,17 @@ export async function generatePackagesSection () {
 
   const packagesSection = packages.join('\n')
 
-  const sectionRE = new RegExp(`${PUBLISHED_PACKAGE_START_COMMENT}(.*?)${PUBLISHED_PACKAGE_END_COMMENT}`)
-  await fs.promises.writeFile(readmePath, readmeFile.toString().replace(sectionRE, `${PUBLISHED_PACKAGE_START_COMMENT}\n${packagesSection}\n${PUBLISHED_PACKAGE_END_COMMENT}`))
+  const readme = readmeFile.toString()
+  await fs.promises.writeFile(
+    readmePath,
+    readme.replace(
+      readme.slice(
+        readme.indexOf(PUBLISHED_PACKAGE_START_COMMENT),
+        readme.indexOf(PUBLISHED_PACKAGE_END_COMMENT) + PUBLISHED_PACKAGE_END_COMMENT.length,
+      ),
+      `${PUBLISHED_PACKAGE_START_COMMENT}\n${packagesSection}\n${PUBLISHED_PACKAGE_END_COMMENT}`,
+    ),
+  )
 }
 
 export async function updateVersionForPackages (req: AutobundleRequest, version: string, size: string) {
