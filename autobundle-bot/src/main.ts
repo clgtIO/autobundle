@@ -73,10 +73,13 @@ ${toMarkdownCode(JSON.stringify(request, null, 4))}
     await exec('rm -rf .git/hooks/*', { cwd: process.cwd() }, 2e3)
 
     try {
+      console.log(await exec(`git status`, {
+        cwd: process.cwd(),
+      }, 5e3))
       await exec(`git commit -a -m "feat(${request.packageName}): add version ${request.version}"`, {
         cwd: process.cwd(),
       }, 5e3)
-      await exec(`git push -u origin main`, {
+      await exec(`git push`, {
         cwd: process.cwd(),
       }, 5e3)
     } catch (e: any) {
