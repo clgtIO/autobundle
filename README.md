@@ -1,6 +1,6 @@
 # Autobundle
 
-Automatic pack your dependency in a bundle, powered by esbuild
+Automatic pack your dependency in a bundle, publish it to NPM, powered by esbuild and ncc.
 
 ## Story
 Have you ever care about which modules that your app included,
