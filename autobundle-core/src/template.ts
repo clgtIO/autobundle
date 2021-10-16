@@ -2,7 +2,7 @@ import * as process from 'process'
 import { AutobundleRequest, BundlesFile } from './types'
 import * as fs from 'fs'
 import * as path from 'path'
-import { exec, refinePackageName, toOrgPackageName } from 'autobundle-common'
+import { exec, jsonify, refinePackageName, toOrgPackageName } from 'autobundle-common'
 
 const INSTALl_TIMEOUT = 60e3 // 1min
 const PUBLISHED_PACKAGE_START_COMMENT = '<!--PUBLISHED_PACKAGE_START-->'
@@ -26,7 +26,7 @@ export async function generatePackagesSection () {
   await fs.promises.writeFile(readmePath, readmeFile.toString().replace(sectionRE, `${PUBLISHED_PACKAGE_START_COMMENT}\n${packagesSection}\n${PUBLISHED_PACKAGE_END_COMMENT}`))
 }
 
-export function updateVersionForPackages (req: AutobundleRequest, version: string, size: string) {
+export async function updateVersionForPackages (req: AutobundleRequest, version: string, size: string) {
   let pkg = bundles.packages.find(pkg => pkg.name === req.packageName)
   if (!pkg) {
     pkg = { name: req.packageName, versions: [] }
@@ -40,6 +40,7 @@ export function updateVersionForPackages (req: AutobundleRequest, version: strin
   }
 
   bundles.packages[bundles.packages.indexOf(pkg)] = pkg
+  await fs.promises.writeFile(bundlesJSONPath, jsonify(bundles))
 }
 
 export async function generatePackage (request: AutobundleRequest): Promise<string> {
@@ -91,7 +92,7 @@ export async function generatePackage (request: AutobundleRequest): Promise<stri
 
   await fs.promises.writeFile(indexPath, indexFile.toString().replace(/new-package-template/, request.packageName))
   await fs.promises.writeFile(readmePath, readme.toString().replace(/{{PACKAGE_NAME}}/, request.packageName))
-  await fs.promises.writeFile(pkgPath, JSON.stringify(pkg, null, 2))
+  await fs.promises.writeFile(pkgPath, jsonify(pkg))
 
   // move to exact version dir instead of "latest" name
   const exactVersionDir = path.resolve(targetDir, pkg.version)

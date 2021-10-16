@@ -16,3 +16,5 @@ export const toOrgPackageName = (name: string) => {
 }
 
 export const prettyBytes = (bytes: number) => pb(bytes)
+
+export const jsonify = (obj: any) => JSON.stringify(obj, null, 2)

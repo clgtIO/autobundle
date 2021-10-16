@@ -2,7 +2,7 @@ import * as core from '@actions/core'
 import * as github from '@actions/github'
 import { esbuild, generatePackage, generatePackagesSection, parseRequestBundleContent, updateVersionForPackages } from 'autobundle-core'
 import {
-  addComment, BUNDLE_RELEASED_LABEL, exec, FAILED_TO_RELEASE_LABEL, ORG_NAME, prettyBytes, refinePackageName, REPO_NAME,
+  addComment, BUNDLE_RELEASED_LABEL, exec, FAILED_TO_RELEASE_LABEL, jsonify, ORG_NAME, prettyBytes, refinePackageName, REPO_NAME,
   REQUEST_BUNDLE_LABEL, toMarkdownCode,
 } from 'autobundle-common'
 import * as fs from 'fs'
@@ -36,7 +36,7 @@ Hi
 Your request is invalid, could you check it again?
 
 ## Request detail:
-${toMarkdownCode(JSON.stringify(request, null, 4))}
+${toMarkdownCode(jsonify(request))}
       `
       await addComment(issue.number, comment)
       throw new Error('Unable to parse issue content')
@@ -48,7 +48,7 @@ Thanks for create request for Autobundle
 Your request is processing, please rechecking this issue after 30 seconds.
 
 ## Request detail:
-${toMarkdownCode(JSON.stringify(request, null, 4))}
+${toMarkdownCode(jsonify(request))}
       `
     await addComment(issue.number, comment)
 
