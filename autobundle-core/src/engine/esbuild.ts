@@ -1,4 +1,4 @@
-import { build, BuildResult, formatMessages, analyzeMetafile } from 'esbuild'
+import { analyzeMetafile, build, BuildResult, formatMessages } from 'esbuild'
 import { Engine } from './engine'
 
 export const esbuild: Engine = async (entry, outfile, req) => {

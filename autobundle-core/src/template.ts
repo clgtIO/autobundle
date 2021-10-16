@@ -86,7 +86,7 @@ export async function generatePackage (request: AutobundleRequest): Promise<stri
     'no-fund',
     'ignore-optional',
   ]
-  const command = `yarn add ${request.package} -D  --${flags.join(' --')}`
+  const command = `yarn add ${request.package}  --${flags.join(' --')}`
 
   await exec(command, { cwd: targetDirWithVersion, maxBuffer: 1024 * 500 }, INSTALl_TIMEOUT)
 
@@ -97,13 +97,16 @@ export async function generatePackage (request: AutobundleRequest): Promise<stri
   pkg.version = pkg.devDependencies[request.packageName]
 
   const indexPath = path.resolve(targetDirWithVersion, 'index.ts')
-  const indexFile = await fs.promises.readFile(indexPath)
   const readmePath = path.resolve(targetDirWithVersion, 'README.md')
+  const indexDefPath = path.resolve(targetDirWithVersion, 'dist/index.d.ts')
+  const indexFile = await fs.promises.readFile(indexPath)
   const readme = await fs.promises.readFile(readmePath)
 
   await fs.promises.writeFile(indexPath, indexFile.toString().replace(/new-package-template/, request.packageName))
   await fs.promises.writeFile(readmePath, readme.toString().replace(/{{PACKAGE_NAME}}/, request.packageName))
   await fs.promises.writeFile(pkgPath, jsonify(pkg))
+  // index.d.ts file
+  await fs.promises.writeFile(indexDefPath, `export * from '${request.packageName}'`)
 
   // move to exact version dir instead of "latest" name
   const exactVersionDir = path.resolve(targetDir, pkg.version)
