@@ -23,7 +23,8 @@ to NPM registry.
 Go to [New Issue](https://github.com/clgtIO/autobundle/issues/new/choose) and request
 
 Note: we highly recommend you only bundle the dependency connect a little dependencies (or the core package), because all dependencies will put into the bundle.
-You should test again after bundling the package.   
+You should test again after bundling the package. 
+This will also power off the tree-shakeable of dependency.
 
 ## Bundled packages
 
