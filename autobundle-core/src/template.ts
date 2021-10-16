@@ -107,8 +107,10 @@ export async function generatePackage (request: AutobundleRequest): Promise<stri
   // move to exact version dir instead of "latest" name
   const exactVersionDir = path.resolve(targetDir, pkg.version)
 
-  await fs.promises.cp(targetDirWithVersion, exactVersionDir, { recursive: true })
-  await fs.promises.rm(targetDirWithVersion, { recursive: true, force: true })
+  if (targetDirWithVersion !== exactVersionDir) {
+    await fs.promises.cp(targetDirWithVersion, exactVersionDir, { recursive: true })
+    await fs.promises.rm(targetDirWithVersion, { recursive: true, force: true })
+  }
 
   return exactVersionDir
 }
