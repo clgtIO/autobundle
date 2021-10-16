@@ -133,6 +133,7 @@ ${toMarkdownCode(engineResult.analyze)}
       repo: REPO_NAME,
       issue_number: issue.number,
       labels: [REQUEST_BUNDLE_LABEL, BUNDLE_RELEASED_LABEL],
+      title: `Request bundle: ${request.packageName}@${exactVersion}`,
       state: 'closed',
     })
 
