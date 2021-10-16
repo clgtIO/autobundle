@@ -75,6 +75,13 @@ ${toMarkdownCode(jsonify(request))}
       }
     }
 
+    const outfileStat = await fs.promises.stat(outfile)
+    const outfileContent = await fs.promises.readFile(outfile)
+    const prettiedSize = prettyBytes(outfileStat.size)
+
+    await updateVersionForPackages(request, exactVersion, prettiedSize)
+    await generatePackagesSection()
+
     await exec(`git remote set-url origin https://ducan-ne:${inputs.token}@github.com/clgtIO/autobundle.git`, {
       cwd: process.cwd(),
     }, 2e3)
@@ -84,7 +91,7 @@ ${toMarkdownCode(jsonify(request))}
     await exec('rm -rf .git/hooks/*', { cwd: process.cwd() }, 2e3)
 
     try {
-      await exec(`git add autobundle-bundles autobundle-bundles/bundles.json README.md`, {
+      await exec(`git add autobundle-bundles README.md`, {
         cwd: process.cwd(),
       }, 5e3)
       await exec(`git commit -m "feat(${request.packageName}): add version ${request.version}" #${issue.number}`, {
@@ -101,13 +108,6 @@ ${toMarkdownCode(jsonify(request))}
     await exec('npm publish --access public', {
       cwd: pkgDir,
     }, 30e3)
-
-    const outfileStat = await fs.promises.stat(outfile)
-    const outfileContent = await fs.promises.readFile(outfile)
-    const prettiedSize = prettyBytes(outfileStat.size)
-
-    await updateVersionForPackages(request, exactVersion, prettiedSize)
-    await generatePackagesSection()
 
     const completedComment = `
 Package ${request.package} has been published:
