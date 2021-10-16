@@ -70,6 +70,15 @@
           "size": "11.3 kB"
         }
       ]
+    },
+    {
+      "name": "puppeteer-core",
+      "versions": [
+        {
+          "version": "10.4.0",
+          "size": "403 kB"
+        }
+      ]
     }
   ]
 }
