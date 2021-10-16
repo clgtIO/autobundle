@@ -101,6 +101,15 @@
           "size": "313 kB"
         }
       ]
+    },
+    {
+      "name": "graphql-request",
+      "versions": [
+        {
+          "version": "3.6.0",
+          "size": "179 kB"
+        }
+      ]
     }
   ]
 }
