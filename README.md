@@ -15,7 +15,7 @@ Or if you is a bundlephobia, this is exactly built for you.
 - Minimal **node_modules**
 
 # How it works
-**Autobundle** use technology like esbuild, webpack to bundling your dependency and automatic publish
+Like [bundlephobia.com](https://bundlephobia.com) **Autobundle** use technology like esbuild, webpack to bundling your dependency and automatic publish
 to NPM registry.
 
 ## Getting started
