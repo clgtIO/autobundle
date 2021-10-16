@@ -41,6 +41,7 @@ You should test again after bundling the package.
 - [puppeteer-core@10.4.0](./autobundle-bundles/puppeteer-core/10.4.0): 403 kB [![NPM Link](https://img.shields.io/static/v1?label=npm&message=npm&color=green)](https://www.npmjs.com/package/@autobundle/puppeteer-core)
 - [puppeteer-core@1.7.0](./autobundle-bundles/puppeteer-core/1.7.0): 441 kB [![NPM Link](https://img.shields.io/static/v1?label=npm&message=npm&color=green)](https://www.npmjs.com/package/@autobundle/puppeteer-core)
 - [playwright-core@1.15.2](./autobundle-bundles/playwright-core/1.15.2): 1.15 MB [![NPM Link](https://img.shields.io/static/v1?label=npm&message=npm&color=green)](https://www.npmjs.com/package/@autobundle/playwright-core)
+- [class-validator@0.13.1](./autobundle-bundles/class-validator/0.13.1): 313 kB [![NPM Link](https://img.shields.io/static/v1?label=npm&message=npm&color=green)](https://www.npmjs.com/package/@autobundle/class-validator)
 <!--BUNDLED_PACKAGE_END-->
 
 ## TODO

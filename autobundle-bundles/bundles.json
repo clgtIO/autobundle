@@ -92,6 +92,15 @@
           "size": "1.15 MB"
         }
       ]
+    },
+    {
+      "name": "class-validator",
+      "versions": [
+        {
+          "version": "0.13.1",
+          "size": "313 kB"
+        }
+      ]
     }
   ]
 }
