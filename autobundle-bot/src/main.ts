@@ -88,12 +88,9 @@ ${toMarkdownCode(JSON.stringify(request, null, 4))}
       // skip if nothing changed
     }
 
+    await exec(`echo "//registry.npmjs.org/:_authToken=${inputs.npmToken}" > ~/.npmrc`, { cwd: pkgDir })
     await exec('npm publish', {
       cwd: pkgDir,
-      env: {
-        ...process.env,
-        NPM_TOKEN: inputs.npmToken,
-      },
     }, 30e3)
 
     const outfileStat = await fs.promises.stat(outfile)
