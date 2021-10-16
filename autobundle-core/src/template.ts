@@ -16,9 +16,10 @@ export async function generatePackagesSection () {
   const readmeFile = await fs.promises.readFile(readmePath)
 
   const packages = bundles.packages.reduce((pkgs, pkg) => {
-    return [...pkgs, ...pkg.versions.map(
-      version => `- [${pkg.name}@${version.version}](./autobundle-bundles/${pkg.name}/${version.version}): ${version.size}`,
-    )]
+    return [...pkgs, ...pkg.versions.map(version => {
+      const npmLink = `[![NPM Link](https://img.shields.io/static/v1?label=npm&message=npm&color=green)](https://www.npmjs.com/package/${toOrgPackageName(pkg.name)})`
+      return `- [${pkg.name}@${version.version}](./autobundle-bundles/${pkg.name}/${version.version}): ${version.size} ${npmLink}`
+    })]
   }, [] as string[])
 
   const packagesSection = packages.join('\n')
