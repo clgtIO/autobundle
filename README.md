@@ -47,7 +47,8 @@ You should test again after bundling the package.
 ## TODO
 - create definition file (d.ts) file (currently esbuild not supported)
 - ncc engine
-- flow: test if the generated package is installable 
+- flow: test if the generated package is installable
+- "sideEffects" option 
 
 # Contributing
 
