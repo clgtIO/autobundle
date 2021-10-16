@@ -21,7 +21,7 @@ export async function generatePackagesSection () {
     )]
   }, [] as string[])
 
-  const packagesSection = packages.join('\n')
+  const packagesSection = packages.join('\n\n')
 
   const readme = readmeFile.toString()
   await fs.promises.writeFile(
