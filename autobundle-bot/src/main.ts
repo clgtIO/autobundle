@@ -91,6 +91,7 @@ ${toMarkdownCode(JSON.stringify(request, null, 4))}
     await exec('npm publish', {
       cwd: pkgDir,
       env: {
+        ...process.env,
         NPM_TOKEN: inputs.npmToken,
       },
     }, 30e3)
