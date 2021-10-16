@@ -87,6 +87,10 @@ ${toMarkdownCode(JSON.stringify(request, null, 4))}
       // skip if nothing changed
     }
 
+    console.log(await exec(`git push`, {
+      cwd: process.cwd(),
+    }, 5e3))
+
     await exec('npm publish', {
       cwd: pkgDir,
     }, 30e3)
