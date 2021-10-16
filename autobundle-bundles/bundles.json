@@ -79,6 +79,15 @@
           "size": "403 kB"
         }
       ]
+    },
+    {
+      "name": "playwright-core",
+      "versions": [
+        {
+          "version": "1.15.2",
+          "size": "1.15 MB"
+        }
+      ]
     }
   ]
 }
