@@ -1,0 +1,14 @@
+{
+  "name": "@autobundle/class-validator",
+  "version": "0.13.1",
+  "main": "dist/index.js",
+  "types": "dist/index.d.js",
+  "homepage": "https://github.com/clgtIO/autobundle",
+  "files": [
+    "dist/index.js"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "class-validator": "0.13.1"
+  }
+}
