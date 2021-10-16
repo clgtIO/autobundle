@@ -37,6 +37,7 @@ You should test again after bundling the package.
 - [@crawlo/graphql@1.0.28](./autobundle-bundles/@crawlo/graphql/1.0.28): 261 kB
 - [intl-number-input@1.0.0](./autobundle-bundles/intl-number-input/1.0.0): 11.3 kB
 - [puppeteer-core@10.4.0](./autobundle-bundles/puppeteer-core/10.4.0): 403 kB
+- [playwright-core@1.15.2](./autobundle-bundles/playwright-core/1.15.2): 1.15 MB
 <!--PUBLISHED_PACKAGE_END-->
 
 ## TODO

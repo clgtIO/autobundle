@@ -1,0 +1,13 @@
+{
+  "name": "@autobundle/playwright-core",
+  "version": "1.15.2",
+  "main": "dist/index.js",
+  "homepage": "https://github.com/clgtIO/autobundle",
+  "files": [
+    "dist/index.js"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "playwright-core": "1.15.2"
+  }
+}
