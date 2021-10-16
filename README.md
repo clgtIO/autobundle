@@ -24,7 +24,7 @@ Go to [New Issue](https://github.com/clgtIO/autobundle/issues/new/choose) and re
 Note: we highly recommend you only bundle the dependency connect a little dependencies (or the core package), because all dependencies will put into the bundle.
 You should test again after bundling the package.   
 
-### Published packages
+## Published packages
 
 <!--PUBLISHED_PACKAGE_START-->
 [express@5.0.0-alpha.8](./autobundle-bundles/express/5.0.0-alpha.8): 806 kB
@@ -38,11 +38,11 @@ You should test again after bundling the package.
 [intl-number-input@1.0.0](./autobundle-bundles/intl-number-input/1.0.0): 11.3 kB
 <!--PUBLISHED_PACKAGE_END-->
 
-### TODO
+## TODO
 - create definition file (d.ts) file (currently esbuild not supported)
 - ncc engine
 - flow: test if the generated package is installable 
 
-## Contributing
+# Contributing
 
 See [Contributing](./CONTRIBUTING.md)

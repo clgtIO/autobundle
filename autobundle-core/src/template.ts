@@ -17,11 +17,11 @@ export async function generatePackagesSection () {
 
   const packages = bundles.packages.reduce((pkgs, pkg) => {
     return [...pkgs, ...pkg.versions.map(
-      version => `[${pkg.name}@${version.version}](./autobundle-bundles/${pkg.name}/${version.version}): ${version.size}`,
+      version => `- [${pkg.name}@${version.version}](./autobundle-bundles/${pkg.name}/${version.version}): ${version.size}`,
     )]
   }, [] as string[])
 
-  const packagesSection = packages.join('\n\n')
+  const packagesSection = packages.join('\n')
 
   const readme = readmeFile.toString()
   await fs.promises.writeFile(
