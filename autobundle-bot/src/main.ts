@@ -89,7 +89,7 @@ ${toMarkdownCode(JSON.stringify(request, null, 4))}
     }
 
     await exec(`echo "//registry.npmjs.org/:_authToken=${inputs.npmToken}" > ~/.npmrc`, { cwd: pkgDir })
-    await exec('npm publish', {
+    await exec('npm publish --access public', {
       cwd: pkgDir,
     }, 30e3)
 
