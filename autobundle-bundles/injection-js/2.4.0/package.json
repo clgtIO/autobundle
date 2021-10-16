@@ -1,0 +1,13 @@
+{
+  "name": "@autobundle/injection-js",
+  "version": "2.4.0",
+  "main": "dist/index.js",
+  "homepage": "https://github.com/clgtIO/autobundle",
+  "files": [
+    "dist/index.js"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "injection-js": "2.4.0"
+  }
+}
