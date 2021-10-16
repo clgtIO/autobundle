@@ -73,10 +73,10 @@ ${toMarkdownCode(JSON.stringify(request, null, 4))}
     await exec('rm -rf .git/hooks/*', { cwd: process.cwd() }, 2e3)
 
     try {
-      console.log(await exec(`git status`, {
+      await exec(`git add autobundle-bundles`, {
         cwd: process.cwd(),
-      }, 5e3))
-      await exec(`git commit -a -m "feat(${request.packageName}): add version ${request.version}"`, {
+      }, 5e3)
+      await exec(`git commit -m "feat(${request.packageName}): add version ${request.version}"`, {
         cwd: process.cwd(),
       }, 5e3)
       await exec(`git push`, {
