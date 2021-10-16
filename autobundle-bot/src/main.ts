@@ -7,6 +7,7 @@ import {
 } from 'autobundle-common'
 import * as fs from 'fs'
 import * as path from 'path'
+import { EngineResult } from '../../autobundle-core/src/engine/engine'
 
 async function run (): Promise<void> {
   const issue = github.context.payload.issue
@@ -57,14 +58,19 @@ ${toMarkdownCode(jsonify(request))}
     const outfile = path.resolve(pkgDir, 'dist/index.js')
     const exactVersion = require(path.resolve(pkgDir, 'package.json')).version
 
+    let engineResult: EngineResult
+
     switch (request.engine) {
       case 'esbuild': {
-        await esbuild(indexFile, outfile, request)
+        engineResult = await esbuild(indexFile, outfile, request)
         break
       }
       default: {
         console.log('not supported yet')
-        break
+        const msg = 'Not supported yet'
+        core.error(msg)
+        core.setFailed(msg)
+        return
       }
     }
 
@@ -77,7 +83,7 @@ ${toMarkdownCode(jsonify(request))}
     await exec('rm -rf .git/hooks/*', { cwd: process.cwd() }, 2e3)
 
     try {
-      await exec(`git add autobundle-bundles`, {
+      await exec(`git add autobundle-bundles autobundle-bundles/bundles.json README.md`, {
         cwd: process.cwd(),
       }, 5e3)
       await exec(`git commit -m "feat(${request.packageName}): add version ${request.version}" #${issue.number}`, {
@@ -111,12 +117,20 @@ We are going to close this request, please reopen if have any issue
       `
     await addComment(issue.number, completedComment)
 
+    if (engineResult.analyze) {
+      const comment = `
+## Analyze info:
+${toMarkdownCode(engineResult.analyze)}
+      `
+      await addComment(issue.number, comment)
+    }
+
     await octokit.rest.issues.update({
       owner: ORG_NAME,
       repo: REPO_NAME,
       issue_number: issue.number,
       labels: [REQUEST_BUNDLE_LABEL, BUNDLE_RELEASED_LABEL],
-      state: 'closed'
+      state: 'closed',
     })
 
   } catch (error: any) {

@@ -1,4 +1,3 @@
-console.log('hello')
 var __create = Object.create;
 var __defProp = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
@@ -119,7 +118,6 @@ var require_ms = __commonJS({
   }
 });
 
-console.log(require_ms())
 // ../autobundle-bundles/ms/1.0.0/index.ts
 __markAsModule(exports);
 __reExport(exports, __toModule(require_ms()));

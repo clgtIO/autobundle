@@ -1,8 +1,7 @@
-import * as process from 'process'
-import { AutobundleRequest, BundlesFile } from './types'
+import { exec, jsonify, refinePackageName, toOrgPackageName } from 'autobundle-common'
 import * as fs from 'fs'
 import * as path from 'path'
-import { exec, jsonify, refinePackageName, toOrgPackageName } from 'autobundle-common'
+import { AutobundleRequest, BundlesFile } from './types'
 
 const INSTALl_TIMEOUT = 60e3 // 1min
 const PUBLISHED_PACKAGE_START_COMMENT = '<!--PUBLISHED_PACKAGE_START-->'

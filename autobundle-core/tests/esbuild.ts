@@ -11,5 +11,6 @@ esbuild(
     package: 'ms@1.0.0',
     minify: false,
     engine: 'esbuild',
+    external: '',
   },
-).then(() => console.log(require(resolve(__dirname, '..', '..', 'autobundle-bundles/ms/1.0.0/dist/index.js'))))
+).then(console.log)

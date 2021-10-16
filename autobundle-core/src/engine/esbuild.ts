@@ -1,4 +1,4 @@
-import { build, BuildResult, formatMessages } from 'esbuild'
+import { build, BuildResult, formatMessages, analyzeMetafile } from 'esbuild'
 import { Engine } from './engine'
 
 export const esbuild: Engine = async (entry, outfile, req) => {
@@ -9,10 +9,12 @@ export const esbuild: Engine = async (entry, outfile, req) => {
     result = await build({
       entryPoints: [entry],
       format: 'cjs',
-      bundle: true,
       platform: 'node',
-      minify: req.minify,
+      legalComments: 'inline',
       logLevel: 'error',
+      bundle: true,
+      metafile: true,
+      minify: req.minify,
       external: req.external.split(',').map(pkg => pkg.trim()),
       outfile,
     })
@@ -26,7 +28,7 @@ export const esbuild: Engine = async (entry, outfile, req) => {
     const messages = result.warnings.filter((warning) => {
       if (
         warning.text.includes(
-          `This call to "require" will not be bundled because`
+          `This call to "require" will not be bundled because`,
         ) ||
         warning.text.includes(`Indirect calls to "require" will not be bundled`)
       )
@@ -46,5 +48,6 @@ export const esbuild: Engine = async (entry, outfile, req) => {
   // auto write
   return {
     code: '',
+    analyze: result.metafile ? await analyzeMetafile(result.metafile) : undefined,
   }
 }

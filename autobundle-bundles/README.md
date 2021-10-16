@@ -1,1 +1,1 @@
-- bundles.json: save the packages info
+- bundles.json: save the packages info (for generating purpose)
