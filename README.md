@@ -49,7 +49,7 @@ You should test again after bundling the package.
 - ncc engine
 - flow: test if the generated package is installable
 - "sideEffects" option 
-- comment the externals suggestion
+- comment the externals suggestion when failed
 
 # Contributing
 
