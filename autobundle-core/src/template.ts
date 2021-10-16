@@ -94,7 +94,7 @@ export async function generatePackage (request: AutobundleRequest): Promise<stri
   const pkg = require(pkgPath)
 
   pkg.name = toOrgPackageName(packageName)
-  pkg.version = pkg.devDependencies[request.packageName]
+  pkg.version = pkg.dependencies[request.packageName]
 
   const indexPath = path.resolve(targetDirWithVersion, 'index.ts')
   const readmePath = path.resolve(targetDirWithVersion, 'README.md')
