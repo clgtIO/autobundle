@@ -24,9 +24,9 @@ Go to [New Issue](https://github.com/clgtIO/autobundle/issues/new/choose) and re
 Note: we highly recommend you only bundle the dependency connect a little dependencies (or the core package), because all dependencies will put into the bundle.
 You should test again after bundling the package.   
 
-## Published packages
+## Bundled packages
 
-<!--PUBLISHED_PACKAGE_START-->
+<!--BUNDLED_PACKAGE_START-->
 - [express@5.0.0-alpha.8](./autobundle-bundles/express/5.0.0-alpha.8): 806 kB
 - [express@4.17.1](./autobundle-bundles/express/4.17.1): 795 kB
 - [pg@8.7.1](./autobundle-bundles/pg/8.7.1): 107 kB
@@ -38,7 +38,7 @@ You should test again after bundling the package.
 - [intl-number-input@1.0.0](./autobundle-bundles/intl-number-input/1.0.0): 11.3 kB
 - [puppeteer-core@10.4.0](./autobundle-bundles/puppeteer-core/10.4.0): 403 kB
 - [playwright-core@1.15.2](./autobundle-bundles/playwright-core/1.15.2): 1.15 MB
-<!--PUBLISHED_PACKAGE_END-->
+<!--BUNDLED_PACKAGE_END-->
 
 ## TODO
 - create definition file (d.ts) file (currently esbuild not supported)

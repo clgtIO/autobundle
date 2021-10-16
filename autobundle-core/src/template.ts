@@ -4,8 +4,8 @@ import * as path from 'path'
 import { AutobundleRequest, BundlesFile } from './types'
 
 const INSTALl_TIMEOUT = 60e3 // 1min
-const PUBLISHED_PACKAGE_START_COMMENT = '<!--PUBLISHED_PACKAGE_START-->'
-const PUBLISHED_PACKAGE_END_COMMENT = '<!--PUBLISHED_PACKAGE_END-->'
+const BUNDLED_PACKAGE_START_COMMENT = '<!--BUNDLED_PACKAGE_START-->'
+const BUNDLED_PACKAGE_END_COMMENT = '<!--BUNDLED_PACKAGE_END-->'
 const bundlesJSONPath = path.resolve(__dirname, '..', '..', 'autobundle-bundles/bundles.json')
 // because this context is the request, we could load json at first
 const bundles = require(bundlesJSONPath) as BundlesFile
@@ -28,10 +28,10 @@ export async function generatePackagesSection () {
     readmePath,
     readme.replace(
       readme.slice(
-        readme.indexOf(PUBLISHED_PACKAGE_START_COMMENT),
-        readme.indexOf(PUBLISHED_PACKAGE_END_COMMENT) + PUBLISHED_PACKAGE_END_COMMENT.length,
+        readme.indexOf(BUNDLED_PACKAGE_START_COMMENT),
+        readme.indexOf(BUNDLED_PACKAGE_END_COMMENT) + BUNDLED_PACKAGE_END_COMMENT.length,
       ),
-      `${PUBLISHED_PACKAGE_START_COMMENT}\n${packagesSection}\n${PUBLISHED_PACKAGE_END_COMMENT}`,
+      `${BUNDLED_PACKAGE_START_COMMENT}\n${packagesSection}\n${BUNDLED_PACKAGE_END_COMMENT}`,
     ),
   )
 }
