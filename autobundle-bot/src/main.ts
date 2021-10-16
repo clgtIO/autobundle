@@ -2,7 +2,8 @@ import * as core from '@actions/core'
 import * as github from '@actions/github'
 import { esbuild, generatePackage, parseRequestBundleContent } from 'autobundle-core'
 import {
-  addComment, BUNDLE_RELEASED_LABEL, exec, FAILED_TO_RELEASE_LABEL, ORG_NAME, prettyBytes, refinePackageName, REPO_NAME, toMarkdownCode,
+  addComment, BUNDLE_RELEASED_LABEL, exec, FAILED_TO_RELEASE_LABEL, ORG_NAME, prettyBytes, refinePackageName, REPO_NAME,
+  REQUEST_BUNDLE_LABEL, toMarkdownCode,
 } from 'autobundle-common'
 import * as fs from 'fs'
 import * as path from 'path'
@@ -100,14 +101,17 @@ Package ${request.package} has been published:
 https://www.npmjs.com/package/@autobundle/${refinePackageName(request.packageName)}
 
 ### Bundle size: ${prettyBytes(outfileStat.size)}
+
+We are going to close this request, please reopen if have any issue
       `
     await addComment(issue.number, completedComment)
 
-    await octokit.rest.issues.addLabels({
+    await octokit.rest.issues.update({
       owner: ORG_NAME,
       repo: REPO_NAME,
       issue_number: issue.number,
-      labels: [BUNDLE_RELEASED_LABEL],
+      labels: [REQUEST_BUNDLE_LABEL, BUNDLE_RELEASED_LABEL],
+      state: 'closed'
     })
 
   } catch (error: any) {
@@ -123,11 +127,11 @@ cc @ducan-ne
       console.error('add comment failed', err)
     }
 
-    await octokit.rest.issues.addLabels({
+    await octokit.rest.issues.update({
       owner: ORG_NAME,
       repo: REPO_NAME,
       issue_number: issue.number,
-      labels: [FAILED_TO_RELEASE_LABEL],
+      labels: [REQUEST_BUNDLE_LABEL, FAILED_TO_RELEASE_LABEL],
     })
 
     core.error(error)
