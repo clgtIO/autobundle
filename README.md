@@ -13,6 +13,7 @@ Or if you is a bundlephobia, this is exactly built for you.
 - Tree-shake your dependency
 - Understand how large of your dependency
 - Minimal **node_modules**
+- You don't need to create new repository, new package, publish it, etc. Just for bundle job, it's easier with autobundle
 
 # How it works
 Same [bundlephobia.com](https://bundlephobia.com), **Autobundle** use technology like esbuild, webpack to bundling your dependency and automatic publish
