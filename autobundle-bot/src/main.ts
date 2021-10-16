@@ -70,6 +70,7 @@ ${toMarkdownCode(JSON.stringify(request, null, 4))}
     }, 2e3)
     await exec(`git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"`, { cwd: process.cwd() }, 1e3)
     await exec(`git config --global user.name "github-actions[bot]"`, { cwd: process.cwd() }, 1e3)
+    // workaround for disable git hooks
     await exec('rm -rf .git/hooks/*', { cwd: process.cwd() }, 2e3)
 
     try {
@@ -84,11 +85,11 @@ ${toMarkdownCode(JSON.stringify(request, null, 4))}
       }, 5e3)
     } catch (e: any) {
       // skip if nothing changed
-
-      // debug purpose
-      console.log('git failed', e, e.stack)
-      console.log('git failed', JSON.stringify(e))
     }
+
+    await exec('npm publish', {
+      cwd: pkgDir,
+    }, 30e3)
 
     const outfileStat = await fs.promises.stat(outfile)
 

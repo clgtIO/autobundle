@@ -23,20 +23,7 @@ export async function generatePackage (request: AutobundleRequest): Promise<stri
 
   await fs.promises.cp(templateDir, targetDirWithVersion, { recursive: true })
 
-  const pkgPath = path.resolve(targetDirWithVersion, 'package.json')
-  const pkg = require(pkgPath)
-
-  pkg.name = toOrgPackageName(packageName)
-  pkg.devDependencies = {
-    [request.packageName]: request.version,
-  }
-
-  const indexPath = path.resolve(targetDirWithVersion, 'index.ts')
-  const indexFile = await fs.promises.readFile(indexPath)
-
-  await fs.promises.writeFile(indexPath, indexFile.toString().replace(/new-package-template/, request.packageName))
-  await fs.promises.writeFile(pkgPath, JSON.stringify(pkg, null, 2))
-
+  // thanks package-build-stats for the flags
   const flags = [
     'ignore-flags',
     'ignore-engines',
@@ -54,6 +41,18 @@ export async function generatePackage (request: AutobundleRequest): Promise<stri
   const command = `yarn add ${request.package} -D  --${flags.join(' --')}`
 
   await exec(command, { cwd: targetDirWithVersion, maxBuffer: 1024 * 500 }, INSTALl_TIMEOUT)
+
+  const pkgPath = path.resolve(targetDirWithVersion, 'package.json')
+  const pkg = require(pkgPath)
+
+  pkg.name = toOrgPackageName(packageName)
+  pkg.version = pkg.devDependencies[request.packageName]
+
+  const indexPath = path.resolve(targetDirWithVersion, 'index.ts')
+  const indexFile = await fs.promises.readFile(indexPath)
+
+  await fs.promises.writeFile(indexPath, indexFile.toString().replace(/new-package-template/, request.packageName))
+  await fs.promises.writeFile(pkgPath, JSON.stringify(pkg, null, 2))
 
   return targetDirWithVersion
 }
