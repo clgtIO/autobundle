@@ -29,3 +29,7 @@ Go to [New Issue](https://github.com/clgtIO/autobundle/issues/new/choose) and re
 - create definition file (d.ts) file (currently esbuild not supported)
 - ncc engine
 - flow: test if the generated package is installable 
+
+## Contributing
+
+See [Contributing](./CONTRIBUTING.md)
