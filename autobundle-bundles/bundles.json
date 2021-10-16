@@ -30,6 +30,42 @@
           "size": "1.97 kB"
         }
       ]
+    },
+    {
+      "name": "injection-js",
+      "versions": [
+        {
+          "version": "2.4.0",
+          "size": "30.3 kB"
+        }
+      ]
+    },
+    {
+      "name": "path-to-regexp",
+      "versions": [
+        {
+          "version": "6.2.0",
+          "size": "6.01 kB"
+        }
+      ]
+    },
+    {
+      "name": "@crawlo/graphql",
+      "versions": [
+        {
+          "version": "1.0.28",
+          "size": "261 kB"
+        }
+      ]
+    },
+    {
+      "name": "intl-number-input",
+      "versions": [
+        {
+          "version": "1.0.0",
+          "size": "11.3 kB"
+        }
+      ]
     }
   ]
 }

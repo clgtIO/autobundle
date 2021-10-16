@@ -110,13 +110,13 @@ ${toMarkdownCode(jsonify(request))}
     }, 30e3)
 
     const completedComment = `
-Package ${request.package} has been published:
+Package ${request.packageName}@${exactVersion} has been published:
 https://www.npmjs.com/package/@autobundle/${refinePackageName(request.packageName)}
 
 ### Bundle size: ${prettiedSize}
 ### Gzipped size: ${prettyBytes(gzipSync(outfileContent, {}).length)}
 
-We are going to close this request, please reopen if have any issue
+We are going to close this request, please reopen if you have any issue.
       `
     await addComment(issue.number, completedComment)
 
