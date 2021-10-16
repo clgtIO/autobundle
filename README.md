@@ -23,7 +23,8 @@ Go to [New Issue](https://github.com/clgtIO/autobundle/issues/new/choose) and re
 
 ### Published packages
 
-<!--PUBLISHED_PACKAGE-->
+<!--PUBLISHED_PACKAGE_START-->
+<!--PUBLISHED_PACKAGE_END-->
 
 ### TODO
 - create definition file (d.ts) file (currently esbuild not supported)

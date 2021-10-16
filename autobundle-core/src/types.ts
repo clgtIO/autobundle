@@ -1,4 +1,5 @@
 export interface AutobundleRequest {
+  // package name without version, ex: pg
   packageName: string
   version: string
   // package with version
@@ -6,6 +7,16 @@ export interface AutobundleRequest {
   external: string
   minify: boolean
   engine: 'esbuild' | 'ncc'
+}
+
+export interface BundlesFile {
+  packages: Array<{
+    name: string,
+    versions: Array<{
+      version: string,
+      size: string
+    }>
+  }>
 }
 
 interface IssueFormAttribute {

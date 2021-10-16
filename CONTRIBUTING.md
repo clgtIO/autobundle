@@ -7,7 +7,7 @@ This project is built with monorepo structure
 These is 5 packages:
 - autobundle-bot: bot package which interactive with github event
 - autobundle-common: utilities and common function
-- autobundle-core: the core, including template generator, issue request parser, etc.
+- autobundle-core: the core, including template generator, issue request parser, engine (esbuild, ncc), etc.
 - autobundle-bundles: contains released packaged, bundles state which write to README.md file.
 - autobundle-docs: markdown files for docs. In the future we can setting up the docs site based from it.
 

@@ -1,6 +1,6 @@
 import * as core from '@actions/core'
 import * as github from '@actions/github'
-import { esbuild, generatePackage, parseRequestBundleContent } from 'autobundle-core'
+import { esbuild, generatePackage, generatePackagesSection, parseRequestBundleContent, updateVersionForPackages } from 'autobundle-core'
 import {
   addComment, BUNDLE_RELEASED_LABEL, exec, FAILED_TO_RELEASE_LABEL, ORG_NAME, prettyBytes, refinePackageName, REPO_NAME,
   REQUEST_BUNDLE_LABEL, toMarkdownCode,
@@ -43,7 +43,7 @@ ${toMarkdownCode(JSON.stringify(request, null, 4))}
     }
 
     const comment = `
-Hi @${github.context.issue.owner}
+Hi @${github.context.actor}
 Thanks for create request for Autobundle
 Your request is processing, please rechecking this issue after 30 seconds.
 
@@ -55,6 +55,7 @@ ${toMarkdownCode(JSON.stringify(request, null, 4))}
     const pkgDir = await generatePackage(request)
     const indexFile = path.resolve(pkgDir, 'index.ts')
     const outfile = path.resolve(pkgDir, 'dist/index.js')
+    const exactVersion = require(path.resolve(pkgDir, 'package.json')).version
 
     switch (request.engine) {
       case 'esbuild': {
@@ -95,12 +96,16 @@ ${toMarkdownCode(JSON.stringify(request, null, 4))}
     }, 30e3)
 
     const outfileStat = await fs.promises.stat(outfile)
+    const prettiedSize = prettyBytes(outfileStat.size)
+
+    await updateVersionForPackages(request, exactVersion, prettiedSize)
+    await generatePackagesSection()
 
     const completedComment = `
 Package ${request.package} has been published:
 https://www.npmjs.com/package/@autobundle/${refinePackageName(request.packageName)}
 
-### Bundle size: ${prettyBytes(outfileStat.size)}
+### Bundle size: ${prettiedSize}
 
 We are going to close this request, please reopen if have any issue
       `
