@@ -14,6 +14,10 @@ Or if you is a bundlephobia, this is exactly built for you.
 - Understand how large of your dependency
 - Minimal **node_modules**
 
+# How it works
+**Autobundle** use technology like esbuild, webpack to bundling your dependency and automatic publish
+to NPM registry.
+
 ## Getting started
 Go to [New Issue](https://github.com/clgtIO/autobundle/issues/new/choose) and request 
 
