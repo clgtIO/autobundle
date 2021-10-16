@@ -143,7 +143,7 @@ ${toMarkdownCode(engineResult.analyze)}
 The execution is failed, please check logs for more details
 https://github.com/clgtIO/autobundle/actions/runs/${github.context.runId}
 
-You could remove all labels and add "request bundle" label to trigger rerun.
+You could remove all labels then add "request bundle" label to trigger rerun.
 
 cc @ducan-ne
       `
