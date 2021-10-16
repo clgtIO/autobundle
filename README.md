@@ -27,6 +27,15 @@ You should test again after bundling the package.
 ### Published packages
 
 <!--PUBLISHED_PACKAGE_START-->
+[express@5.0.0-alpha.8](./autobundle-bundles/express/5.0.0-alpha.8): 806 kB
+[express@4.17.1](./autobundle-bundles/express/4.17.1): 795 kB
+[pg@8.7.1](./autobundle-bundles/pg/8.7.1): 107 kB
+[ms@1.0.0](./autobundle-bundles/ms/1.0.0): 1.97 kB
+[injection-js@2.4.0](./autobundle-bundles/injection-js/2.4.0): 30.3 kB
+[injection-js@2.3.2](./autobundle-bundles/injection-js/2.3.2): 29.7 kB
+[path-to-regexp@6.2.0](./autobundle-bundles/path-to-regexp/6.2.0): 6.01 kB
+[@crawlo/graphql@1.0.28](./autobundle-bundles/@crawlo/graphql/1.0.28): 261 kB
+[intl-number-input@1.0.0](./autobundle-bundles/intl-number-input/1.0.0): 11.3 kB
 <!--PUBLISHED_PACKAGE_END-->
 
 ### TODO
