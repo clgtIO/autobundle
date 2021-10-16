@@ -3,11 +3,11 @@ name: Request bundle
 on:
   issues:
     types:
-      - opened
-      - reopened
+      - labeled
 
 jobs:
   request-bundle:
+    if: ${{ github.event.label.name == 'request bundle' }}
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v2
