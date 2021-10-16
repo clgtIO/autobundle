@@ -42,8 +42,8 @@ ${toMarkdownCode(JSON.stringify(request, null, 4))}
     }
 
     const comment = `
-Hi
-Thanks for create issue for Autobundle
+Hi @${github.context.issue.owner}
+Thanks for create request for Autobundle
 Your request is processing, please rechecking this issue after 30 seconds.
 
 ## Request detail:
