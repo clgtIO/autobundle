@@ -24,6 +24,7 @@ export async function generatePackagesSection () {
   const packagesSection = packages.join('\n')
 
   const readme = readmeFile.toString()
+  console.log(packagesSection)
   await fs.promises.writeFile(
     readmePath,
     readme.replace(
@@ -50,6 +51,7 @@ export async function updateVersionForPackages (req: AutobundleRequest, version:
   }
 
   bundles.packages[bundles.packages.indexOf(pkg)] = pkg
+  console.log(jsonify(bundles))
   await fs.promises.writeFile(bundlesJSONPath, jsonify(bundles))
 }
 
