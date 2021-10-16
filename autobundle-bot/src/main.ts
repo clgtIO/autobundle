@@ -94,7 +94,7 @@ ${toMarkdownCode(jsonify(request))}
       await exec(`git add autobundle-bundles README.md`, {
         cwd: process.cwd(),
       }, 5e3)
-      await exec(`git commit -m "feat(${request.packageName}): add version ${request.version}" #${issue.number}`, {
+      await exec(`git commit -m "feat(${request.packageName},#${issue.number}): add version ${request.version}"`, {
         cwd: process.cwd(),
       }, 5e3)
       await exec(`git push`, {
