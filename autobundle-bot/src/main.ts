@@ -114,7 +114,7 @@ Package ${request.package} has been published:
 https://www.npmjs.com/package/@autobundle/${refinePackageName(request.packageName)}
 
 ### Bundle size: ${prettiedSize}
-### Gzipped size: ${gzipSync(outfileContent, {}).length}
+### Gzipped size: ${prettyBytes(gzipSync(outfileContent, {}).length)}
 
 We are going to close this request, please reopen if have any issue
       `
