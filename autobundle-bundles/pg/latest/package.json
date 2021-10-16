@@ -1,0 +1,12 @@
+{
+  "name": "@autobundle/pg",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "files": [
+    "dist/index.js"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "pg": "8.7.1"
+  }
+}
