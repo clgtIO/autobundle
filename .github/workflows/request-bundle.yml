@@ -14,10 +14,10 @@ jobs:
       - uses: actions/setup-node@v2
         with:
           node-version: '16'
-      - run: echo "//registry.npmjs.org/:_authToken=${{secrets.NPM_TOKEN}}" > .npmrc
       - run: yarn install --prefer-lock
       - run: yarn --cwd autobundle-bot build
       - name: Autobundle Bot
         uses: ./autobundle-bot
         with:
           token: ${{secrets.GH_TOKEN}}
+          npmToken: ${{secrets.NPM_TOKEN}}

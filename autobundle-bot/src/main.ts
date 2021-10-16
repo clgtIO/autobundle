@@ -12,6 +12,7 @@ async function run (): Promise<void> {
 
   const inputs = {
     token: core.getInput('token', { required: true }),
+    npmToken: core.getInput('npmToken', { required: true }),
   }
 
   if (!issue || !inputs.token) {
@@ -87,12 +88,11 @@ ${toMarkdownCode(JSON.stringify(request, null, 4))}
       // skip if nothing changed
     }
 
-    console.log(await exec(`cat .npmrc`, {
-      cwd: process.cwd(),
-    }, 5e3))
-
     await exec('npm publish', {
       cwd: pkgDir,
+      env: {
+        NPM_TOKEN: inputs.npmToken,
+      },
     }, 30e3)
 
     const outfileStat = await fs.promises.stat(outfile)

@@ -5,6 +5,9 @@ inputs:
   token:
     description: token
     required: true
+  npmToken:
+    description: npm token
+    required: true
 
 runs:
   using: 'docker'
