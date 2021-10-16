@@ -80,7 +80,7 @@ ${toMarkdownCode(jsonify(request))}
       await exec(`git add autobundle-bundles`, {
         cwd: process.cwd(),
       }, 5e3)
-      await exec(`git commit -m "feat(${request.packageName}): add version ${request.version}"`, {
+      await exec(`git commit -m "feat(${request.packageName}): add version ${request.version}" #${issue.number}`, {
         cwd: process.cwd(),
       }, 5e3)
       await exec(`git push`, {
