@@ -28,17 +28,18 @@ You should test again after bundling the package.
 ## Bundled packages
 
 <!--BUNDLED_PACKAGE_START-->
-- [express@5.0.0-alpha.8](./autobundle-bundles/express/5.0.0-alpha.8): 806 kB
-- [express@4.17.1](./autobundle-bundles/express/4.17.1): 795 kB
-- [pg@8.7.1](./autobundle-bundles/pg/8.7.1): 107 kB
-- [ms@1.0.0](./autobundle-bundles/ms/1.0.0): 1.97 kB
-- [injection-js@2.4.0](./autobundle-bundles/injection-js/2.4.0): 30.3 kB
-- [injection-js@2.3.2](./autobundle-bundles/injection-js/2.3.2): 29.7 kB
-- [path-to-regexp@6.2.0](./autobundle-bundles/path-to-regexp/6.2.0): 6.01 kB
-- [@crawlo/graphql@1.0.28](./autobundle-bundles/@crawlo/graphql/1.0.28): 261 kB
-- [intl-number-input@1.0.0](./autobundle-bundles/intl-number-input/1.0.0): 11.3 kB
-- [puppeteer-core@10.4.0](./autobundle-bundles/puppeteer-core/10.4.0): 403 kB
-- [playwright-core@1.15.2](./autobundle-bundles/playwright-core/1.15.2): 1.15 MB
+- [express@5.0.0-alpha.8](./autobundle-bundles/express/5.0.0-alpha.8): 806 kB [![NPM Link](https://img.shields.io/static/v1?label=npm&message=npm&color=green)](https://www.npmjs.com/package/@autobundle/express)
+- [express@4.17.1](./autobundle-bundles/express/4.17.1): 795 kB [![NPM Link](https://img.shields.io/static/v1?label=npm&message=npm&color=green)](https://www.npmjs.com/package/@autobundle/express)
+- [pg@8.7.1](./autobundle-bundles/pg/8.7.1): 107 kB [![NPM Link](https://img.shields.io/static/v1?label=npm&message=npm&color=green)](https://www.npmjs.com/package/@autobundle/pg)
+- [ms@1.0.0](./autobundle-bundles/ms/1.0.0): 1.97 kB [![NPM Link](https://img.shields.io/static/v1?label=npm&message=npm&color=green)](https://www.npmjs.com/package/@autobundle/ms)
+- [injection-js@2.4.0](./autobundle-bundles/injection-js/2.4.0): 30.3 kB [![NPM Link](https://img.shields.io/static/v1?label=npm&message=npm&color=green)](https://www.npmjs.com/package/@autobundle/injection-js)
+- [injection-js@2.3.2](./autobundle-bundles/injection-js/2.3.2): 29.7 kB [![NPM Link](https://img.shields.io/static/v1?label=npm&message=npm&color=green)](https://www.npmjs.com/package/@autobundle/injection-js)
+- [path-to-regexp@6.2.0](./autobundle-bundles/path-to-regexp/6.2.0): 6.01 kB [![NPM Link](https://img.shields.io/static/v1?label=npm&message=npm&color=green)](https://www.npmjs.com/package/@autobundle/path-to-regexp)
+- [@crawlo/graphql@1.0.28](./autobundle-bundles/@crawlo/graphql/1.0.28): 261 kB [![NPM Link](https://img.shields.io/static/v1?label=npm&message=npm&color=green)](https://www.npmjs.com/package/@autobundle/@crawlo/graphql)
+- [intl-number-input@1.0.0](./autobundle-bundles/intl-number-input/1.0.0): 11.3 kB [![NPM Link](https://img.shields.io/static/v1?label=npm&message=npm&color=green)](https://www.npmjs.com/package/@autobundle/intl-number-input)
+- [puppeteer-core@10.4.0](./autobundle-bundles/puppeteer-core/10.4.0): 403 kB [![NPM Link](https://img.shields.io/static/v1?label=npm&message=npm&color=green)](https://www.npmjs.com/package/@autobundle/puppeteer-core)
+- [puppeteer-core@1.7.0](./autobundle-bundles/puppeteer-core/1.7.0): 441 kB [![NPM Link](https://img.shields.io/static/v1?label=npm&message=npm&color=green)](https://www.npmjs.com/package/@autobundle/puppeteer-core)
+- [playwright-core@1.15.2](./autobundle-bundles/playwright-core/1.15.2): 1.15 MB [![NPM Link](https://img.shields.io/static/v1?label=npm&message=npm&color=green)](https://www.npmjs.com/package/@autobundle/playwright-core)
 <!--BUNDLED_PACKAGE_END-->
 
 ## TODO
