@@ -2,7 +2,7 @@ import * as core from '@actions/core'
 import * as github from '@actions/github'
 import { esbuild, generatePackage, parseRequestBundleContent } from 'autobundle-core'
 import {
-  addComment, BUNDLE_RELEASED_LABEL, exec, FAILED_TO_RELEASE_LABEL, ORG_NAME, prettyBytes, REPO_NAME, toMarkdownCode,
+  addComment, BUNDLE_RELEASED_LABEL, exec, FAILED_TO_RELEASE_LABEL, ORG_NAME, prettyBytes, refinePackageName, REPO_NAME, toMarkdownCode,
 } from 'autobundle-common'
 import * as fs from 'fs'
 import * as path from 'path'
@@ -96,7 +96,8 @@ ${toMarkdownCode(JSON.stringify(request, null, 4))}
     const outfileStat = await fs.promises.stat(outfile)
 
     const completedComment = `
-Package ${request.package} has been released
+Package ${request.package} has been published:
+https://www.npmjs.com/package/@autobundle/${refinePackageName(request.packageName)}
 
 ### Bundle size: ${prettyBytes(outfileStat.size)}
       `
