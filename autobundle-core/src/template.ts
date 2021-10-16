@@ -51,7 +51,7 @@ export async function generatePackage (request: AutobundleRequest): Promise<stri
   const indexPath = path.resolve(targetDirWithVersion, 'index.ts')
   const indexFile = await fs.promises.readFile(indexPath)
   const readmePath = path.resolve(targetDirWithVersion, 'README.md')
-  const readme = await fs.promises.readFile(indexPath)
+  const readme = await fs.promises.readFile(readmePath)
 
   await fs.promises.writeFile(indexPath, indexFile.toString().replace(/new-package-template/, request.packageName))
   await fs.promises.writeFile(readmePath, readme.toString().replace(/{{PACKAGE_NAME}}/, request.packageName))
