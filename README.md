@@ -15,11 +15,14 @@ Or if you is a bundlephobia, this is exactly built for you.
 - Minimal **node_modules**
 
 # How it works
-Like [bundlephobia.com](https://bundlephobia.com) **Autobundle** use technology like esbuild, webpack to bundling your dependency and automatic publish
+Same [bundlephobia.com](https://bundlephobia.com), **Autobundle** use technology like esbuild, webpack to bundling your dependency and automatic publish
 to NPM registry.
 
 ## Getting started
-Go to [New Issue](https://github.com/clgtIO/autobundle/issues/new/choose) and request 
+Go to [New Issue](https://github.com/clgtIO/autobundle/issues/new/choose) and request
+
+Note: we highly recommend you only bundle the dependency connect a little dependencies (or the core package), because all dependencies will put into the bundle.
+You should test again after bundling the package.   
 
 ### Published packages
 
