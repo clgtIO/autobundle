@@ -11,6 +11,7 @@
     "@actions/core": "^1.6.0",
     "@actions/github": "^5.0.0",
     "autobundle-common": "1.0.0",
-    "autobundle-core": "1.0.0"
+    "autobundle-core": "1.0.0",
+    "zlib": "^1.0.5"
   }
 }

@@ -7,6 +7,7 @@ import {
 } from 'autobundle-common'
 import * as fs from 'fs'
 import * as path from 'path'
+import { gzipSync } from 'zlib'
 import { EngineResult } from '../../autobundle-core/src/engine/engine'
 
 async function run (): Promise<void> {
@@ -102,6 +103,7 @@ ${toMarkdownCode(jsonify(request))}
     }, 30e3)
 
     const outfileStat = await fs.promises.stat(outfile)
+    const outfileContent = await fs.promises.readFile(outfile)
     const prettiedSize = prettyBytes(outfileStat.size)
 
     await updateVersionForPackages(request, exactVersion, prettiedSize)
@@ -112,6 +114,7 @@ Package ${request.package} has been published:
 https://www.npmjs.com/package/@autobundle/${refinePackageName(request.packageName)}
 
 ### Bundle size: ${prettiedSize}
+### Gzipped size: ${gzipSync(outfileContent, {}).length}
 
 We are going to close this request, please reopen if have any issue
       `
