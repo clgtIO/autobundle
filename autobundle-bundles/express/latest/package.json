@@ -1,0 +1,13 @@
+{
+  "name": "@autobundle/express",
+  "version": "4.17.1",
+  "main": "dist/index.js",
+  "homepage": "https://github.com/clgtIO/autobundle",
+  "files": [
+    "dist/index.js"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "express": "4.17.1"
+  }
+}
