@@ -1,2 +1,1 @@
-// @ts-ignore
-export * from 'new-package-template'
+This packaged is the bundle generated from pg
