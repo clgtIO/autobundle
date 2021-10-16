@@ -2,6 +2,7 @@
   "name": "new-package-template",
   "version": "1.0.0",
   "main": "dist/index.js",
+  "homepage": "https://github.com/clgtIO/autobundle",
   "files": [
     "dist/index.js"
   ],
