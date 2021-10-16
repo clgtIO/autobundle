@@ -1,1 +1,1 @@
-This packaged is the bundle generated from {{PACKAGE_NAME}}
+This package is the bundle generated from {{PACKAGE_NAME}}

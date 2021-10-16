@@ -1,1 +1,1 @@
-This packaged is the bundle generated from @crawlo/graphql
+This package is the bundle generated from @crawlo/graphql

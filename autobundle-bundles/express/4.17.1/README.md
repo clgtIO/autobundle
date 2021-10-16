@@ -1,1 +1,1 @@
-This packaged is the bundle generated from express
+This package is the bundle generated from express

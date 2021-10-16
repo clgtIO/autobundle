@@ -1,1 +1,1 @@
-This packaged is the bundle generated from injection-js
+This package is the bundle generated from injection-js
