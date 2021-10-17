@@ -13,7 +13,7 @@ Or if you are a bundlephobia, this is exactly built for you.
 - Tree-shake your dependency
 - Understand how large of your dependency
 - Minimal **node_modules**
-- You don't need to create new repository, new package, publish it, etc. Just for bundle job, it's easier with autobundle
+- You don't need to create new repository, new package, publish it, etc. Just for bundling job, it's easier with autobundle
 
 # How it works
 Same [bundlephobia.com](https://bundlephobia.com), **Autobundle** use technology like esbuild, webpack to bundling your dependency and automatic publish
@@ -22,7 +22,7 @@ to NPM registry.
 ## Getting started
 Go to [New Issue](https://github.com/clgtIO/autobundle/issues/new/choose) and request
 
-- Note 1: We highly recommend you only bundle the dependency connect a little dependencies (or the core package), because all dependencies will put into the bundle.
+- Note 1: We highly recommend you only bundling the dependency connect a little dependencies (or the core package), because all dependencies will put into the bundle.
 You should test again after bundling the package.
 - Note 2: This will also power off the tree-shakeable of dependency.
 
