@@ -32,7 +32,7 @@ body:
     id: engine
     attributes:
       label: Bundler
-      description: What the bundler you want to bundling?
+      description: What's bundler you want?
       options:
         - esbuild
         - ncc
