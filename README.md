@@ -31,6 +31,7 @@ You should test again after bundling the package.
 <!--BUNDLED_PACKAGE_START-->
 - [express@5.0.0-alpha.8](./autobundle-bundles/express/5.0.0-alpha.8): 806 kB [![NPM Link](https://img.shields.io/static/v1?label=npm&message=npm&color=green)](https://www.npmjs.com/package/@autobundle/express)
 - [express@4.17.1](./autobundle-bundles/express/4.17.1): 795 kB [![NPM Link](https://img.shields.io/static/v1?label=npm&message=npm&color=green)](https://www.npmjs.com/package/@autobundle/express)
+- [express@4.17.0](./autobundle-bundles/express/4.17.0): 797 kB [![NPM Link](https://img.shields.io/static/v1?label=npm&message=npm&color=green)](https://www.npmjs.com/package/@autobundle/express)
 - [pg@8.7.1](./autobundle-bundles/pg/8.7.1): 107 kB [![NPM Link](https://img.shields.io/static/v1?label=npm&message=npm&color=green)](https://www.npmjs.com/package/@autobundle/pg)
 - [ms@1.0.0](./autobundle-bundles/ms/1.0.0): 1.97 kB [![NPM Link](https://img.shields.io/static/v1?label=npm&message=npm&color=green)](https://www.npmjs.com/package/@autobundle/ms)
 - [injection-js@2.4.0](./autobundle-bundles/injection-js/2.4.0): 30.3 kB [![NPM Link](https://img.shields.io/static/v1?label=npm&message=npm&color=green)](https://www.npmjs.com/package/@autobundle/injection-js)
