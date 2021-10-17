@@ -3,7 +3,7 @@
 Automatic pack your dependency in a bundle, publish it to NPM, powered by esbuild and ncc.
 
 ## Story
-Have you ever care about which modules that your app included,
+Have you ever care about how many modules(files) your dependency are included,
 **Autobundle** help you make a bundle from your dependency, read below for the benefits.
 Or if you are a bundlephobia, this is exactly built for you.
 

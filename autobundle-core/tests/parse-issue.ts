@@ -1,4 +1,4 @@
-import { parseRequestBundleContent } from '../src/issue-parser'
+import { parseRequestBundleContent } from '../src'
 
 console.log(parseRequestBundleContent(`
 ### NPM package name
