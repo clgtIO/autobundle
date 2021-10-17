@@ -2,11 +2,11 @@
   "name": "@autobundle/express",
   "version": "4.17.0",
   "main": "dist/index.js",
-  "types": "dist/index.d.js",
+  "types": "dist/index.d.ts",
   "homepage": "https://github.com/clgtIO/autobundle",
   "files": [
     "dist/index.js",
-    "dist/index.d.js"
+    "dist/index.d.ts"
   ],
   "license": "MIT",
   "dependencies": {

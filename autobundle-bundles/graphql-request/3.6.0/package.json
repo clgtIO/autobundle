@@ -2,7 +2,7 @@
   "name": "@autobundle/graphql-request",
   "version": "3.6.0",
   "main": "dist/index.js",
-  "types": "dist/index.d.js",
+  "types": "dist/index.d.ts",
   "homepage": "https://github.com/clgtIO/autobundle",
   "files": [
     "dist/index.js"
