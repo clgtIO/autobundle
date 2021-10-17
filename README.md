@@ -4,7 +4,7 @@ Automatic pack your dependency in a bundle, publish it to NPM, powered by esbuil
 
 ## Story
 Have you ever care about how many modules(files) your dependency are included,
-**Autobundle** help you make a bundle from your dependency, read below for the benefits.
+**Autobundle** help you make a bundle from your dependency, you just need import one module from.
 Or if you are a bundlephobia, this is exactly built for you.
 
 ## The benefits
