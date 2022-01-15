@@ -10,7 +10,7 @@
     "autobundle-common": "1.0.0",
     "esbuild": "^0.13.6",
     "js-yaml": "^4.1.0",
-    "marked": "^3.0.7",
+    "marked": "^4.0.10",
     "tmp-promise": "^3.0.2"
   },
   "devDependencies": {
